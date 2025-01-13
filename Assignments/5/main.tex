@@ -1,0 +1,89 @@
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+\documentclass[journal]{IEEEtran}
+\usepackage[a5paper, margin=10mm, onecolumn]{geometry}
+%\usepackage{lmodern} % Ensure lmodern is loaded for pdflatex
+\usepackage{tfrupee} % Include tfrupee package
+
+\setlength{\headheight}{1cm} % Set the height of the header box
+\setlength{\headsep}{0mm}  % Set the distance between the header box and the top of the text
+
+\usepackage{gvv-book}
+\usepackage{gvv}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{comment}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide} 
+\usepackage{listings}
+% \usepackage{gvv}                                        
+\def\inputGnumericTable{}                                 
+\usepackage[latin1]{inputenc}                                
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{longtable}                                       
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}                                           
+\usepackage{lscape}
+\begin{document}
+
+\bibliographystyle{IEEEtran}
+\vspace{3cm}
+
+\title{10.4.2.3}
+\author{EE24BTECH11021 - Eshan Ray}
+
+% \maketitle
+% \newpage
+% \bigskip
+{\let\newpage\relax\maketitle}
+
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+\setlength{\intextsep}{10pt} % Space between text and floats
+
+\textbf{Question:}\\
+Find two numbers whose sum is $27$ and product is $182$\\
+\solution{
+Let one of the numbers be $x$\\
+So, the other number is $27-x$\\
+Given,
+\begin{align}
+    x\brak{27-x} &= 182\\
+    27x-x^2 &=182\\
+    x^2 - 27x + 182 &=0\\
+    \brak{x-13}\brak{x-14} &= 0\\
+    \implies    x &= 13,14
+\end{align}
+So, the numbers are $13$ and $14$\\
+
+\textbf{Computational Solution:}\\
+Using Newton- Raphson Method we get,\\ \\
+We start by taking an initial guess and then iteratively we us the following equation to find the roots of the quadratic equation :-
+\begin{align}
+    x_{n+1} &= x_n - \frac{f\brak{x_n}}{f\prime\brak{x_n}}\\
+    f\brak{x} &= x^2 - 27x +182\\
+    f\prime\brak{x} &= 2x - 27\\
+    x_{n+1} &= x_n - \frac{x_{n}^2-27x_n+182}{2x_n-27}
+\end{align}
+After running the code, we obtained the following results:-
+\begin{align}
+    \text{Root-1:}\, 14.00000000\\
+    \text{Root-2:}\, 13.00000000
+\end{align}
+}
+\end{document}
+
+
+
