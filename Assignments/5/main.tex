@@ -66,6 +66,7 @@ Given,
     \brak{x-13}\brak{x-14} &= 0\\
     \implies    x &= 13,14
 \end{align}
+
 So, the numbers are $13$ and $14$\\
 
 \textbf{Computational Solution:}\\
@@ -81,6 +82,20 @@ After running the code, we obtained the following results:-
 \begin{align}
     \text{Root-1:}\, 14.00000000\\
     \text{Root-2:}\, 13.00000000
+\end{align}
+
+\textbf{Alternate Method: Eigenvalues of Companion Matrix}\\
+In this method, we find the roots of any polynomial of the form $x^n + a_{n-1}x^{n-1}\dots ax+a_0=0$ by finding the eigenvalues of the Companion Matrix $\brak{C}$ given below:-\\
+\begin{align}
+    C &= \myvec{0&1&0&\dots&0\\ 0&0&1&\dots&0\\ \vdots &\vdots &\vdots &\ddots&\vdots\\0&0&0&\vdots&1\\-a_0&-a_1&-a_2&\dots&-a_{n-1}}
+\end{align}
+For the Quadratic Equation $x^2-27x+182-0$, we get the following companion Matrix
+\begin{align}
+    C&=\myvec{0&1\\-182&27}
+\end{align}
+Using QR Decomposition with shifts to calculate the Eigenvalues of the companion Matrix we get the following eigenvalues/roots of the equation:-
+\begin{align}
+    \text{Roots of the quadratic equation:}\, [14.0, 13.0]
 \end{align}
 }
 \end{document}
