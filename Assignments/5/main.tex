@@ -135,33 +135,19 @@ The details of the process is given below:-\\
         r_{ij} &= \langle a_j, q_i \rangle \text{ , for  }  i \leq j 
     \end{align}
 \end{enumerate}
-\textbf{QR With shift}\\
-    \text{Basic QR algorithm:}\\
-    In the basic QR algorithm, the matrix $A$ is decomposed into matrices $Q$ and $R$ as:
+    \textbf{ QR algorithm:}\\
+    In the  QR algorithm, the matrix $A_n$ is decomposed into matrices $Q_n$ and $R_n$ as:
     \begin{align}
-    A&=QR
+    A_{n}&=Q_nR_n
     \end{align}
-Then, the new matrix $A_{new}$ is computed as:
+Then, the new matrix $A_{n+1}$ is computed as:
 \begin{align}
-A_{new}&=RQ
+A_{n+1}&=R_nQ_n
 \end{align}
 This process is repeated until the off-diagonal elements of the matrix become negligibly small, at which point the diagonal elements approximate the eigenvalues of the original matrix.\\ \\
-\textbf{The shifted QR iteration} is as follows:
-\begin{enumerate}
-    \item Modify the matrix by subtracting it with $\mu I$ where $\mu$ is a shift parameter, thus giving the following matrix:
-    \begin{align}
-    A' &= A - \mu I
-    \end{align}
-    \item Compute the QR decomposition of $A'$ and revert the shift in the next matrix as 
-    \begin{align}
-    A'' &= RQ + \mu I
-    \end{align}
-    \item Repeat the process until the matrix becomes nearly upper triangular, i.e., the off-diagonal elements are sufficiently small, indicating that the process is completed and eigenvalues of the matrix is computed.
-\end{enumerate}
-\begin{align}
-    \text{Roots computed :}\, [14.0, 13.0]
+ \begin{align}
+	\text{Eigenvalues computed :}\, [14.0, 13.0]
 \end{align}
-
 \begin{figure}[h]
     \centering
     \includegraphics[width=\columnwidth]{plots/plot2.png}
