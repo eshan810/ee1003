@@ -1,6 +1,6 @@
 import ctypes
 import numpy as np
-
+import matplotlib.pyplot as plt
 # Load the shared library
 lib = ctypes.CDLL('./qr_decomposition.so')
 
@@ -24,4 +24,22 @@ eigenvalues_extracted = [eigenvalues[i] for i in range(2)]
 
 # Print the roots of the quadratic equation
 print("Roots of the quadratic equation:", eigenvalues_extracted)
+
+# Python function for f(x) for plotting
+def f(x):
+    return  x**2 - 27 * x + 182
+
+# Plot the graph of f(x)
+x = np.linspace(10, 20, 500)
+y = f(x)
+
+plt.figure(figsize=(8, 8))
+plt.plot(x, y, label='f(x) = $x^2 - 27x + 182$')
+plt.scatter([eigenvalues_extracted], [0, 0], color='red', label='Roots by Eigenvalue Approach ')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.grid()
+plt.savefig("../plots/plot2.png")
+plt.show()
 

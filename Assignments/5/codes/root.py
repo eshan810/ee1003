@@ -1,6 +1,7 @@
 import ctypes
 import math
-
+import numpy as np
+import matplotlib.pyplot as plt
 # Load the shared object file
 newton_lib = ctypes.CDLL('./libnewton_raphson.so')
 
@@ -51,3 +52,26 @@ else:
     else:
         print("Failed to find Root 2.")
 
+# Define the quadratic equation
+def quadratic(x):
+    return a * x**2 + b * x + c
+
+# Generate x values for plotting
+x_values = np.linspace(10, 20, 500)
+y_values = quadratic(x_values)
+
+plt.figure(figsize=(8, 8))
+plt.plot(x_values, y_values, label=r"$x^2 - 27x + 182$", color="blue")
+plt.axhline(0, color="black", linestyle="--", linewidth=1)
+
+# Highlight the roots
+plt.scatter([root1.value, root2.value], [0, 0], color="red", label="Roots", zorder=5)
+
+# Add labels, title, and legend
+plt.xlabel("x")
+plt.ylabel("y")
+plt.legend()
+
+plt.grid()
+plt.savefig("../plots/plot1.png")
+plt.show()
